@@ -1,0 +1,14 @@
+{
+  "name": "ordenes-testing-solace-consumer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "consume": "node consume.js",
+    "ui": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "solclientjs": "^10.17.0"
+  }
+}
