@@ -1,14 +1,36 @@
 {
-  "name": "ordenes-testing-solace-consumer",
-  "version": "0.1.0",
+  "name": "andante-queue-manager",
+  "version": "2.0.0",
+  "description": "Andante Labs Queue Manager — a robust Solace PubSub+ publish/subscribe console (Next.js).",
   "private": true,
-  "type": "commonjs",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
-    "consume": "node consume.js",
-    "ui": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
-    "express": "^4.21.0",
-    "solclientjs": "^10.17.0"
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.460.0",
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "solclientjs": "^10.17.0",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
   }
 }

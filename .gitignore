@@ -1,3 +1,28 @@
+# dependencies
 node_modules
-files/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# production
+build/
+
+# secrets & local config — never commit credentials
+.env
+.env.*
+!.env.example
+
+# runtime data
+received/
+*.log
+npm-debug.log*
+
+# tooling artifacts
+.playwright-mcp/
+*.tsbuildinfo
 .claude
+
+# os
+.DS_Store

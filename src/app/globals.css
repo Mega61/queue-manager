@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ============================ Self-hosted brand fonts ============================ */
+@font-face { font-family:'Hanken'; src:url('/assets/fonts/hanken-grotesk-latin-400-normal.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Hanken'; src:url('/assets/fonts/hanken-grotesk-latin-500-normal.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Hanken'; src:url('/assets/fonts/hanken-grotesk-latin-600-normal.woff2') format('woff2'); font-weight:600; font-display:swap; }
+@font-face { font-family:'Hanken'; src:url('/assets/fonts/hanken-grotesk-latin-800-normal.woff2') format('woff2'); font-weight:800; font-display:swap; }
+@font-face { font-family:'Hanken'; src:url('/assets/fonts/hanken-grotesk-latin-800-italic.woff2') format('woff2'); font-weight:800; font-style:italic; font-display:swap; }
+@font-face { font-family:'SplineMono'; src:url('/assets/fonts/spline-sans-mono-latin-400-normal.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'SplineMono'; src:url('/assets/fonts/spline-sans-mono-latin-500-normal.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+/* ============================ Andante design tokens ============================ */
+:root {
+  --navy: #172D3A;
+  --navy-2: #0f1f29;
+  --navy-line: #27414f;
+  --mint: #00E4AE;
+  --mint-deep: #00a37c;
+  --mint-soft: #d6fbf0;
+
+  --background: #eef1f3;
+  --surface: #ffffff;
+  --foreground: #171717;
+  --muted: #5b6b75;
+  --faint: #8a99a2;
+  --line: #e1e6e9;
+  --line-2: #eef1f3;
+
+  --ok: #0f9d6b;
+  --warn: #c98a00;
+  --err: #d6453c;
+  --info: #2f6fed;
+
+  --radius: 0.75rem;
+}
+
+/* Map tokens to Tailwind v4 utilities (bg-surface, text-mint, border-line, etc.) */
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-navy-line: var(--navy-line);
+  --color-mint: var(--mint);
+  --color-mint-deep: var(--mint-deep);
+  --color-mint-soft: var(--mint-soft);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-err: var(--err);
+  --color-info: var(--info);
+  --font-sans: 'Hanken', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'SplineMono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --radius-DEFAULT: var(--radius);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 1.45;
+  background:
+    radial-gradient(900px 500px at 100% -10%, rgba(0,228,174,.10), transparent 60%),
+    var(--background);
+  background-attachment: fixed;
+}
+::selection { background: var(--mint); color: var(--navy); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #c5cfd5; border-radius: 20px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: #aab6bd; background-clip: content-box; }
+
+/* JSON syntax highlight classes */
+.jkey { color: var(--info); }
+.jstr { color: #0a7d56; }
+.jnum { color: #b25000; }
+.jbool { color: #8043c9; }
+.jnull { color: var(--faint); }
+
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(0,228,174,.55)} 70%{box-shadow:0 0 0 7px rgba(0,228,174,0)} 100%{box-shadow:0 0 0 0 rgba(0,228,174,0)} }
+@keyframes slidein { from{opacity:0; transform:translateY(-7px)} to{opacity:1; transform:none} }
+.animate-slidein { animation: slidein .28s cubic-bezier(.2,.7,.3,1); }

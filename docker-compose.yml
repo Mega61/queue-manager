@@ -1,0 +1,28 @@
+# Andante Labs Queue Manager — Docker Compose for VM deployment.
+#   cp .env.example .env   # optional: non-secret operational settings
+#   docker compose up -d --build
+#   docker compose logs -f
+services:
+  queue-manager:
+    build: .
+    image: andante/queue-manager:latest
+    container_name: queue-manager
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    ports:
+      - "${PORT:-3000}:3000"
+    init: true
+    stop_grace_period: 15s
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 12s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
